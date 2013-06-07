@@ -1,0 +1,18 @@
+# Makefile for lmm
+#
+
+
+LIBS     = -ltcl8.5 -ltk8.5 -lstdc++
+
+LIBPATHS = -L/usr/local/lib/
+
+INCLUDES = -I/usr/local/include/ -I/usr/X11R6/include/
+
+SOURCE   = src/modman.cpp
+
+lmm: lmm.o
+	gcc -o lmm lmm.o $(LIBPATHS) $(LIBS)
+
+lmm.o: $(SOURCE)
+	g++ -g -c $< $(INCLUDES) -o lmm.o 
+
